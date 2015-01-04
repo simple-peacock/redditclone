@@ -14,15 +14,15 @@
 
 
 // default demo 
-Route::get('/', function()
+Route::get('demo', function()
 {
 	return View::make('hello');
 });
 
 
 
-// test route
-Route::get('/helloworld', function()
+// main view
+Route::get('/', function()
 {
-	return 'Hello, world!';
+	return View::make('layouts.main-content');
 });
