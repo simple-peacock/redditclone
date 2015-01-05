@@ -12,14 +12,22 @@
 */
 
 
-
-// default demo 
-Route::get('demo', function()
-{
-	return View::make('hello');
-});
-
+// main view - show all posts
+Route::get('/', array(
+	'uses' => 'PostController@index',
+	'as' => 'index'
+));
 
 
-// main view
-Route::get('/', 'PostController@index');
+// create post - the form
+Route::get('/new', array(
+	'uses' => 'PostController@newPost',
+	'as' => 'newPost'
+));
+
+
+// create post - POST
+Route::post('/new', array(
+	'uses' => 'PostController@createPost',
+	'as' => 'createPost'
+));
