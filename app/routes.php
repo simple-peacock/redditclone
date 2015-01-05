@@ -22,7 +22,4 @@ Route::get('demo', function()
 
 
 // main view
-Route::get('/', function()
-{
-	return View::make('layouts.main-content');
-});
+Route::get('/', 'PostController@index');

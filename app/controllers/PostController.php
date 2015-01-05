@@ -2,7 +2,11 @@
 
 class PostController extends BaseController {
 
-	// index of posts?
+	// show all posts
+	public function index()
+	{
+      	return View::make('layouts.main-content', array('posts' => Post::all()));
+	}
 	
 	// get single post - after posting
 	
