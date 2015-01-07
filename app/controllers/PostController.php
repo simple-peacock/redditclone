@@ -16,7 +16,6 @@ class PostController extends BaseController {
 		return View::make('layouts.newpost');	
 	}
 	
-	  // create a post that has been POSTed to the server
 	  
 	  
 	  
@@ -31,6 +30,8 @@ class PostController extends BaseController {
     	//return Redirect::route('viewPost', array('id' => $post->id));
     	return Redirect::route('index');
   	}
+
+
 
   	// view a post by id
   	public function viewPost($id)
