@@ -31,3 +31,10 @@ Route::post('/new', array(
 	'uses' => 'PostController@createPost',
 	'as' => 'createPost'
 ));
+
+
+// view a single post
+Route::get('/{id}', array(
+	'uses' => 'PostController@viewPost',
+	'as' => 'viewPost'
+));

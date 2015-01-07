@@ -14,7 +14,7 @@ class CreatePostsTable extends Migration {
 	{
 		Schema::create('posts', function(Blueprint $table)
 		{
-			$table->increments('postid'); // primary key
+			$table->increments('id'); // primary key
 			
 			$table->integer('userid'); // referencing who made the post
 			

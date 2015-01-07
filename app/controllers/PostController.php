@@ -34,12 +34,12 @@ class PostController extends BaseController {
 
 
   	// view a post by id
-  	public function viewPost($id)
+  	public function viewPost($postid)
   	{
     	
-    	$post = Post::findOrFail($id);
+    	$post = Post::findOrFail($postid);
 
-    	$this->layout->content = View::make('blog.view', array(
+    	return View::make('layouts.viewpost', array(
       		'post' => $post
     	));
   	}
