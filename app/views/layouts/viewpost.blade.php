@@ -9,9 +9,9 @@
 	
 	<h3>New Comment</h3>
   	
-  	<form action="{{ URL::route('createComment') }}" method="post" class="uk-form">
+  	<form action="{{ URL::route('createComment', array('id' => $post->id)) }}" method="post" class="uk-form">
     	<div class="uk-form-row">
-      		<textarea name="text" placeholder="New Comment..."></textarea>
+      		<textarea name="comment" placeholder="New Comment..."></textarea>
     	</div>
     	<div class="uk-form-row">
     		<button class="uk-button">Submit</button>

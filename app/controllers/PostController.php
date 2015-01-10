@@ -43,5 +43,23 @@ class PostController extends BaseController {
       		'post' => $post
     	));
   	}
+  	
+  	
+	// create a comment for a given post
+  	public function createComment($id)
+  	{
+    	// get the post that the user commented on
+    	$post = Post::findOrFail($id);
+
+    	// create a new comment
+    	$comment = new Comment();
+    	$comment->comment = nl2br(Input::get('comment'));
+
+    	// save the comment with a relation to the post
+    	$post->comments()->save($comment);
+
+    	// go back to the post
+    	return Redirect::route('viewPost', array('id' => $post->id));
+  	}
 
 }
