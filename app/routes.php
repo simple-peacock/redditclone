@@ -38,3 +38,9 @@ Route::get('/{id}', array(
 	'uses' => 'PostController@viewPost',
 	'as' => 'viewPost'
 ));
+
+// create a new comment for a given post
+Route::post('/{id}/newcomment', array(
+  'as' => 'createComment',
+  'uses' => 'PostController@createComment'
+));
