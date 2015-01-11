@@ -13,6 +13,18 @@ class Post extends Eloquent {
   	{
     	return $this->hasMany('Comment');
   	}
+	
+	// helper function to get a string of the number of comments
+  	public function getNumComments()
+  	{
+    	$num = $this->comments()->count();
 
+    	if ($num == 1)
+    	{
+      		return '1 comment';
+    	}
+
+    	return $num . ' comments';
+  	}
 
 }

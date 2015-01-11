@@ -1,33 +1,42 @@
 @extends('layouts.master')
 
 @section('main-content')
-    View Post
+    
+    <div>
+    	<a href="{{ URL::route('index') }}" class="uk-button">Back Home</a>
+    </div>
     
 	@include('partials.post', array('post' => $post))
 
 	<div>
-    	<h3>Comments</h3>
+    	<h4>Comments</h4>
     	@if (count($post->comments) === 0)
       		<p>No comments yet on this post.</p>
     	@else
+    		<ul class="uk-comment-list" id="comments">
       		@foreach ($post->comments as $comment)
-        		<div>
+        		<li>
+        		<div class="uk-comment">
           			<!-- <p><strong>{{ $comment->name }} says...</strong></p> -->
-          			<blockquote>{{ $comment->comment }}</blockquote>
+          			<div class="uk-comment-body">{{ $comment->comment }}</div>
         		</div>
+        		</li>
       		@endforeach
+      		</ul>
     	@endif
   	</div>
 	
-	<h3>New Comment</h3>
+	<h4>New Comment:</h4>
   	
   	<form action="{{ URL::route('createComment', array('id' => $post->id)) }}" method="post" class="uk-form">
+    	<fieldset>
     	<div class="uk-form-row">
-      		<textarea name="comment" placeholder="New Comment..."></textarea>
+      		<textarea class="uk-form-width-large" rows="10" name="comment" placeholder="Write here..."></textarea>
     	</div>
     	<div class="uk-form-row">
     		<button class="uk-button">Submit</button>
     	</div>
+    	</fieldset>
   	</form>
 
 @stop

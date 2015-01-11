@@ -3,13 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <title>Reddit Clone in Laravel</title>
-  {{ HTML::style('uikit/css/uikit.min.css') }}
+  {{ HTML::style('uikit/css/uikit.almost-flat.min.css') }}
 </head>
 <body>
 <div class="uk-container">
 <div class="uk-grid" data-uk-grid-margin>
 
 <div class="uk-width-medium-3-4">
+	<h1>Reddit Clone in Laravel</h1>
 	@yield('main-content')
 </div>
 
