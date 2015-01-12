@@ -6,7 +6,7 @@
     	<a href="{{ URL::route('index') }}" class="uk-button">Back Home</a>
     </div>
     
-	@include('partials.post', array('post' => $post))
+	@include('partials.post', array('post' => $post, 'full' => true))
 
 	<div>
     	<h4>Comments</h4>
