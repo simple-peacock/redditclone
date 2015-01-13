@@ -10,7 +10,4 @@
     	@endforeach
     @endif
     
-    <div>
-    	<a href="{{ URL::route('newPost') }}" class="uk-button">New Post</a>
-    </div>
 @stop
