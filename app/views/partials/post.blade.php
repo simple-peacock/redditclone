@@ -4,7 +4,7 @@
     	@if ($full)
     		<h2>{{ $post->title }}</h2>
     	@else
-    		<a href="{{ $post->getURL(); }}">{{ $post->title }}</a>
+    		<a class="uk-text-large" href="{{ $post->getURL(); }}">{{ $post->title }}</a>
     	@endif
   	</div>
     
