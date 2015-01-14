@@ -1,5 +1,11 @@
 <article class="uk-article">
     
+	<div class="votecol">
+  		<div class="arrow up"></div>
+  		<div class="score">12</div>
+  		<div class="arrow down"></div>
+	</div>
+    
     <div class="uk-text-bold">
     	@if ($full)
     		<h2>{{ $post->title }}</h2>

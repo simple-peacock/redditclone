@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <title>Reddit Clone in Laravel</title>
   {{ HTML::style('uikit/css/uikit.almost-flat.min.css') }}
+  {{ HTML::style('css/mystyles.css') }}
 </head>
 <body>
 <div class="uk-container uk-container-center uk-margin-top">
