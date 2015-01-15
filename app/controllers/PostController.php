@@ -5,7 +5,7 @@ class PostController extends BaseController {
 	// show all posts
 	public function index()
 	{
-      	return View::make('layouts.main-content', array('posts' => Post::all()));
+      	return View::make('layouts.main-content', array('posts' => Post::orderBy('points','DESC')->get()));
 	}
 	
 	
