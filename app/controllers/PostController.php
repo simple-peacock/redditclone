@@ -63,14 +63,22 @@ class PostController extends BaseController {
     	return Redirect::route('viewPost', array('id' => $post->id));
   	}
   	
-  	public function downVote($id)
-  	{
-  	
-  	}
-  	
   	public function upVote($id)
   	{
+  		$post = Post::findOrFail($id);
+  		$post->points++;
+  		$post->save();
+  		
+  		return Redirect::route('index');
+  	}
   	
+  	public function downVote($id)
+  	{
+  		$post = Post::findOrFail($id);
+  		$post->points--;
+  		$post->save();
+  		
+  		return Redirect::route('index');
   	}
 
 }
