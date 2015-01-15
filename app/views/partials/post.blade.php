@@ -17,8 +17,6 @@
     <div class="">
     	@if ($full)
     		{{ $post->text }}
-    	@else
-    		{{ str_limit($post->text, 100) }}
     	@endif
     </div>
     
