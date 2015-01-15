@@ -1,10 +1,12 @@
 <article class="uk-article">
     
+    @if (!$full)
 	<div class="votecol">
   		<a class="arrow up" href="{{ URL::route('upVote', array('id' => $post->id)) }}"></a>
   		<div class="score">{{ $post->points }}</div>
   		<a class="arrow down" href="{{ URL::route('downVote', array('id' => $post->id)) }}"></a>
 	</div>
+	@endif
     
     <div class="uk-text-bold">
     	@if ($full)
