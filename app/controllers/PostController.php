@@ -25,6 +25,7 @@ class PostController extends BaseController {
     	$post = new Post();
     	$post->title = Input::get('title');
     	$post->text = nl2br(Input::get('text'));
+    	$post->points = 0;
     	$post->save();
 
     	//return Redirect::route('viewPost', array('id' => $post->id));
@@ -60,6 +61,16 @@ class PostController extends BaseController {
 
     	// go back to the post
     	return Redirect::route('viewPost', array('id' => $post->id));
+  	}
+  	
+  	public function downVote($id)
+  	{
+  	
+  	}
+  	
+  	public function upVote($id)
+  	{
+  	
   	}
 
 }

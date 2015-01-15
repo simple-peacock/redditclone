@@ -1,9 +1,9 @@
 <article class="uk-article">
     
 	<div class="votecol">
-  		<div class="arrow up"></div>
-  		<div class="score">12</div>
-  		<div class="arrow down"></div>
+  		<a class="arrow up" href="{{ URL::route('upVote', array('id' => $post->id)) }}"></a>
+  		<div class="score">{{ $post->points }}</div>
+  		<a class="arrow down" href="{{ URL::route('downVote', array('id' => $post->id)) }}"></a>
 	</div>
     
     <div class="uk-text-bold">

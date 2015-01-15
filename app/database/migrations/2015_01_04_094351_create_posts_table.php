@@ -27,8 +27,6 @@ class CreatePostsTable extends Migration {
 			
 			// slug?
 			
-			// # of comments?
-			
 			$table->string('subreddit');
 			$table->timestamps();
 		});

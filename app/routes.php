@@ -44,3 +44,15 @@ Route::post('/{id}/newcomment', array(
   'as' => 'createComment',
   'uses' => 'PostController@createComment'
 ));
+
+// up vote a post
+Route::get('/{id}/upvote', array(
+	'uses' => 'PostController@upVote',
+	'as' => 'upVote'
+));
+
+// down vote a post
+Route::get('/{id}/downvote', array(
+	'uses' => 'PostController@downVote',
+	'as' => 'downVote'
+));
