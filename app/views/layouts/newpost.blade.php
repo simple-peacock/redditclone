@@ -2,10 +2,6 @@
 
 @section('main-content')
 
-	<div>
-    	<a href="{{ URL::route('index') }}" class="uk-button">Back Home</a>
-	</div>
-
   	<h3>New Post</h3>
   	<form action="{{ URL::route('createPost') }}" method="post" class="uk-form">
     	<div class="uk-form-row">

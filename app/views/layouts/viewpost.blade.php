@@ -2,13 +2,9 @@
 
 @section('main-content')
     
-    <div>
-    	<a href="{{ URL::route('index') }}" class="uk-button">Back Home</a>
-    </div>
-    
 	@include('partials.post', array('post' => $post, 'full' => true))
 
-	<div>
+	<div class="uk-margin-large-top">
     	<h4>Comments</h4>
     	@if (count($post->comments) === 0)
       		<p>No comments yet on this post.</p>
