@@ -31,6 +31,13 @@
 </div>
 
 </div> 
+<footer class="uk-text-center uk-margin-large-top uk-margin-large-bottom">
+
+<i class="uk-icon-github uk-icon-large"></i>
+
+<p><a href="https://github.com/simple-peacock/redditclone">View source on GitHub</a></p>
+</footer>
+
 </div>
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
 {{ HTML::script('uikit/js/uikit.min.js') }} 
