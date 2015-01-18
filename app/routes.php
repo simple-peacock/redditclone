@@ -18,6 +18,17 @@ Route::get('/', array(
 	'as' => 'index'
 ));
 
+// register view
+Route::get('/register', array(
+	'uses' => 'UsersController@getRegister',
+	'as' => 'getRegister'
+));
+
+// register - POST
+Route::post('/register', array(
+	'uses' => 'UsersController@postRegister',
+	'as' => 'postRegister'
+));
 
 // create post - the form
 Route::get('/new', array(
@@ -56,3 +67,8 @@ Route::get('/{id}/downvote', array(
 	'uses' => 'PostController@downVote',
 	'as' => 'downVote'
 ));
+
+
+
+
+

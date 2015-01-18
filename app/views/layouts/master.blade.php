@@ -13,7 +13,7 @@
 		<a href="" class="uk-navbar-brand">Reddit Clone in Laravel</a>
     	<ul class="uk-navbar-nav">
         	<li><a href="{{ URL::route('index') }}">Home</a></li>
-        	<li><a href="">About</a></li>
+        	<li><a href="{{ URL::route('getRegister') }}">Register</a></li>
         	<li><a href="">Login</a></li>
     	</ul>
 	</nav>
