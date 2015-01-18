@@ -15,6 +15,7 @@
         	<li><a href="{{ URL::route('index') }}">Home</a></li>
         	<li><a href="{{ URL::route('getRegister') }}">Register</a></li>
         	<li><a href="{{ URL::route('getLogin') }}">Login</a></li>
+        	<li><a href="{{ URL::route('logout') }}">Logout</a></li>
     	</ul>
 	</nav>
 

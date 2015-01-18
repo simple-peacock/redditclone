@@ -57,4 +57,9 @@ class UsersController extends BaseController {
         		->withInput();
 		}
 	}
+	
+	public function logout() {
+    	Auth::logout();
+    	return Redirect::route('index')->with('message', 'Your are now logged out!');
+	}
 }

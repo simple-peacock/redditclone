@@ -44,6 +44,12 @@ Route::post('/login', array(
 	'as' => 'postLogin'
 ));
 
+// logout
+Route::get('/logout', array(
+	'uses' => 'UsersController@logout',
+	'as' => 'logout'
+));
+
 // create post - the form
 Route::get('/new', array(
 	'uses' => 'PostController@newPost',
