@@ -39,6 +39,7 @@ Route::get('/login', array(
 
 // login - POST
 Route::post('/login', array(
+	'before' => 'csrf',
 	'uses' => 'UsersController@postLogin',
 	'as' => 'postLogin'
 ));

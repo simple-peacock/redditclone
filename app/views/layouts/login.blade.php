@@ -8,11 +8,6 @@
         <p class="uk-alert">{{ Session::get('message') }}</p>
     @endif
     
-	
-    @foreach($errors->all() as $error)
-        <div class="uk-alert uk-alert-danger">{{ $error }}</div>
-    @endforeach
-    
   	
   	<form action="{{ URL::route('postLogin') }}" method="post" class="uk-form">
     	

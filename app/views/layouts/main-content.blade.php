@@ -2,6 +2,10 @@
 
 @section('main-content')
     
+    @if(Session::has('message'))
+        <p class="uk-alert">{{ Session::get('message') }}</p>
+    @endif
+    
     @if (count($posts) === 0)
     	<p class="lead">No content yet. <a href="{{ URL::route('newPost') }}">Add a new post!</a></p>
   	@else
