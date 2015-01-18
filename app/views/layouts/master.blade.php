@@ -10,13 +10,26 @@
 <div class="uk-container uk-container-center uk-margin-top">
 	
 	<nav class="uk-navbar uk-margin-large-bottom">
+		
 		<a href="" class="uk-navbar-brand">Reddit Clone in Laravel</a>
+    	
     	<ul class="uk-navbar-nav">
         	<li><a href="{{ URL::route('index') }}">Home</a></li>
         	<li><a href="{{ URL::route('getRegister') }}">Register</a></li>
         	<li><a href="{{ URL::route('getLogin') }}">Login</a></li>
-        	<li><a href="{{ URL::route('logout') }}">Logout</a></li>
     	</ul>
+    	
+    	@if(Auth::check())
+    		<div class="uk-navbar-flip">
+    			<ul class="uk-navbar-nav ">
+        	
+    				<li class="uk-text-muted uk-navbar-content">Welcome, {{ Auth::user()->username }}</li>
+    				<li><a href="{{ URL::route('logout') }}">Logout</a></li>
+    		
+    			</ul>
+    		</div>
+		@endif
+	
 	</nav>
 
 <div class="uk-grid" data-uk-grid-margin>
