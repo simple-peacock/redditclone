@@ -4,7 +4,19 @@
 
   	<h3>Register</h3>
   	
+  	@if(Session::has('message'))
+        <p class="uk-alert">{{ Session::get('message') }}</p>
+    @endif
+    
+	
+        @foreach($errors->all() as $error)
+            <div class="uk-alert uk-alert-danger">{{ $error }}</div>
+        @endforeach
+    
+  	
   	<form action="{{ URL::route('postRegister') }}" method="post" class="uk-form">
+    	
+    	{{ Form::token() }}
     	
     	<div class="uk-form-row">
       		<input name="username" type="text" placeholder="Username">

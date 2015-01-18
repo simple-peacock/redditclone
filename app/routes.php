@@ -26,8 +26,21 @@ Route::get('/register', array(
 
 // register - POST
 Route::post('/register', array(
+	'before' => 'csrf',
 	'uses' => 'UsersController@postRegister',
 	'as' => 'postRegister'
+));
+
+// login view
+Route::get('/login', array(
+	'uses' => 'UsersController@getLogin',
+	'as' => 'getLogin'
+));
+
+// login - POST
+Route::post('/login', array(
+	'uses' => 'UsersController@postLogin',
+	'as' => 'postLogin'
 ));
 
 // create post - the form
