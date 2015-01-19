@@ -15,9 +15,6 @@ class CreatePostsTable extends Migration {
 		Schema::create('posts', function(Blueprint $table)
 		{
 			$table->increments('id'); // primary key
-			
-			$table->integer('userid'); // referencing who made the post
-			
 			$table->string('title');   // add max length?
 			$table->boolean('islink');
 			$table->string('link');
@@ -28,6 +25,12 @@ class CreatePostsTable extends Migration {
 			// slug?
 			
 			$table->string('subreddit');
+			
+      		$table->integer('user_id')->unsigned();
+      		$table->foreign('user_id')
+            	->references('id')->on('users')
+            	->onDelete('cascade');
+			
 			$table->timestamps();
 		});
 	}

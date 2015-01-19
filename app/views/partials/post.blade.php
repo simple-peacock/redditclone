@@ -24,6 +24,7 @@
     
     <div class="uk-article-meta">
     	Posted {{ $post->created_at->diffForHumans() }}
+    	Author: {{ $post->user->username }}
     	<a class="uk-link-muted" href="{{ $post->getURL(); }}#comments">{{ $post->getNumComments() }}</a>
     </div>
 
