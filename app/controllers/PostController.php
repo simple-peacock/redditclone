@@ -22,11 +22,16 @@ class PostController extends BaseController {
   	public function createPost()
   	{
     	
+    	$user = User::findOrFail(Auth::id());
+    	
     	$post = new Post();
     	$post->title = Input::get('title');
     	$post->text = nl2br(Input::get('text'));
     	$post->points = 0;
-    	$post->save();
+    	
+    	// $post->save();
+    	
+    	$user->posts()->save($post);
 
     	//return Redirect::route('viewPost', array('id' => $post->id));
     	return Redirect::route('index');
