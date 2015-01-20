@@ -9,7 +9,7 @@
 <body>
 <div class="uk-container uk-container-center uk-margin-top">
 	
-	<nav class="uk-navbar uk-margin-large-bottom">
+	<nav class="uk-navbar uk-margin-bottom">
 		
 		<a href="" class="uk-navbar-brand">Reddit Clone in Laravel</a>
     	

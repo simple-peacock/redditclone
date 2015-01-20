@@ -52,6 +52,7 @@ Route::get('/logout', array(
 
 // create post - the form
 Route::get('/new', array(
+	'before' => 'auth',
 	'uses' => 'PostController@newPost',
 	'as' => 'newPost'
 ));
@@ -59,6 +60,7 @@ Route::get('/new', array(
 
 // create post - POST
 Route::post('/new', array(
+	'before' => 'auth',
 	'uses' => 'PostController@createPost',
 	'as' => 'createPost'
 ));
@@ -72,8 +74,9 @@ Route::get('/{id}', array(
 
 // create a new comment for a given post
 Route::post('/{id}/newcomment', array(
-  'as' => 'createComment',
-  'uses' => 'PostController@createComment'
+	'before' => 'auth',
+	'as' => 'createComment',
+	'uses' => 'PostController@createComment'
 ));
 
 // up vote a post

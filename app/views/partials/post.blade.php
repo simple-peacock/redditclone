@@ -1,4 +1,4 @@
-<article class="uk-article">
+<div class="uk-margin-bottom">
     
     @if (!$full)
 	<div class="votecol">
@@ -23,9 +23,9 @@
     </div>
     
     <div class="uk-article-meta">
-    	Posted {{ $post->created_at->diffForHumans() }}
-    	Author: {{ $post->user->username }}
+    	Posted {{ $post->created_at->diffForHumans() }} by {{ $post->user->username }}
+    	<div class="uk-article-meta">
     	<a class="uk-link-muted" href="{{ $post->getURL(); }}#comments">{{ $post->getNumComments() }}</a>
     </div>
-
-</article>
+	</div>
+</div>

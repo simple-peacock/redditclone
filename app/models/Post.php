@@ -29,6 +29,9 @@ class Post extends Eloquent {
     	if ($num == 1)
     	{
       		return '1 comment';
+    	} elseif ($num == 0)
+    	{
+    		return 'comment';
     	}
 
     	return $num . ' comments';
