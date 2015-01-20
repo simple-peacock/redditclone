@@ -14,4 +14,10 @@
     	@endforeach
     @endif
     
+  
+    
+    {{ $posts->links('pagination::slider-3') }}
+    
+   
+    
 @stop
