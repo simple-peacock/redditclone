@@ -55,19 +55,20 @@ class PostController extends BaseController {
   	public function createComment($id)
   	{
     	// get the post that the user commented on
-    	$post = Post::findOrFail($id);
+    	//$post = Post::findOrFail($id);
     	$user = User::findOrFail(Auth::id());
 
     	// create a new comment
     	$comment = new Comment();
+    	$comment->post_id = $id;
     	$comment->comment = nl2br(Input::get('comment'));
 
     	// save the comment with a relation to the post
     	//$post->comments()->save($comment);
-    	$user->posts()->comments()->save($comment);
+    	$user->comments()->save($comment);
 
     	// go back to the post
-    	return Redirect::route('viewPost', array('id' => $post->id));
+    	return Redirect::route('viewPost', array('id' => $id));
   	}
   	
   	public function upVote($id)
