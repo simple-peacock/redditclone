@@ -12,12 +12,17 @@
     		<ul class="uk-comment-list" id="comments">
       		@foreach ($post->comments as $comment)
         		<li>
-        		<div class="uk-comment">
-          			<!-- <p><strong>{{ $comment->name }} says...</strong></p> -->
-          			Posted {{ $comment->created_at->diffForHumans() }} by {{ $comment->user->username }}
-          			<div class="uk-comment-body">{{ $comment->comment }}</div>
+        			<article class="uk-comment">
+        		
+        		    	<header class="uk-comment-header">
+        					<img class="uk-comment-avatar" src="" alt="">
+        					<div class="uk-comment-title">{{ $comment->user->username }}</div>
+        					<div class="uk-comment-meta">{{ $comment->created_at->diffForHumans() }}</div>
+    					</header>
           			
-        		</div>
+          				<div class="uk-comment-body">{{ $comment->comment }}</div>
+          			
+        			</article>
         		</li>
       		@endforeach
       		</ul>
