@@ -27,8 +27,10 @@ class UsersController extends BaseController {
     		$user->email = Input::get('email');
     		$user->password = Hash::make(Input::get('password'));
     		$user->save();
+    		
+    		Auth::login($user);
  
-    		return Redirect::route('getRegister')->with('message', 'You have successfully registered');
+    		return Redirect::route('index')->with('message', 'You are now registered!');
         	
     	} else {
     	
