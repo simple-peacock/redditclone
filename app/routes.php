@@ -93,7 +93,7 @@ Route::get('/{id}/downvote', array(
 
 // view user profile
 Route::get('/profile/{username}', array(
-	'uses' => 'UserController@viewProfile',
+	'uses' => 'UsersController@viewProfile',
 	'as' => 'viewProfile'
 ));
 

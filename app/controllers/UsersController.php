@@ -61,7 +61,18 @@ class UsersController extends BaseController {
 	}
 	
 	public function logout() {
+    	
     	Auth::logout();
+    	
     	return Redirect::route('index')->with('message', 'Your are now logged out!');
+	
+	}
+	
+	public function viewProfile($username) {
+	
+		$user = User::where('username', '=', $username)->first();
+				
+		return View::make('layouts.viewprofile', array('user' => $user));
+	
 	}
 }
