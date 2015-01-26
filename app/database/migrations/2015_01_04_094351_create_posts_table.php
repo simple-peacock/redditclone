@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration {
 			$table->increments('id'); // primary key
 			$table->string('title');   // add max length?
 			$table->boolean('islink');
-			$table->string('link');
+			$table->string('link');  // we should rename this url
 			$table->text('text'); // optional - if not link
 			
 			$table->integer('points');

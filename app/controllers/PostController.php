@@ -26,10 +26,18 @@ class PostController extends BaseController {
     	
     	$post = new Post();
     	$post->title = Input::get('title');
-    	$post->text = nl2br(Input::get('text'));
-    	$post->points = 0;
     	
-    	// $post->save();
+    	if (Input::has('text')) {
+    		
+    		$post->text = nl2br(Input::get('text'));
+    		
+    	} elseif (Input::has('url')) {
+    	
+    		$post->islink = true;
+    		$post->link = Input::get('url');
+    	}
+    	
+    	$post->points = 0;
     	
     	$user->posts()->save($post);
 
