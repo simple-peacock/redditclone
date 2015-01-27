@@ -11,6 +11,8 @@
     <div class="uk-text-bold">
     	@if ($full)
     		<h2>{{ $post->title }}</h2>
+    	@elseif ($post->islink == true) 
+    		<a class="uk-text-large" href="{{ $post->link }}">{{ $post->title }}</a>
     	@else
     		<a class="uk-text-large" href="{{ $post->getURL(); }}">{{ $post->title }}</a>
     	@endif
