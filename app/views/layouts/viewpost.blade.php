@@ -15,7 +15,7 @@
         			<article class="uk-comment">
         		
         		    	<header class="uk-comment-header">
-        					<img class="uk-comment-avatar" src="" alt="">
+        					<img class="uk-comment-avatar" src="img/placeholder_avatar.svg" alt="">
         					<div class="uk-comment-title">{{ $comment->user->username }}</div>
         					<div class="uk-comment-meta">{{ $comment->created_at->diffForHumans() }}</div>
     					</header>
