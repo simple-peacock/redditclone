@@ -11,7 +11,15 @@
     	@else
     		<ul class="uk-comment-list" id="comments">
       		@foreach ($post->comments as $comment)
+
+      		
         		<li>
+					          			      		        			<div class="votecol">
+  		<a class="arrow up" href="{{ URL::route('upVote', array('id' => $post->id)) }}"></a>
+  		<div class="score">{{ $post->points }}</div>
+  		<a class="arrow down" href="{{ URL::route('downVote', array('id' => $post->id)) }}"></a>
+	</div>
+        			<div>
         			<article class="uk-comment">
         		
         		    	<header class="uk-comment-header">
@@ -20,9 +28,14 @@
         					<div class="uk-comment-meta">{{ $comment->created_at->diffForHumans() }}</div>
     					</header>
           			
+          			
+
+          			
           				<div class="uk-comment-body">{{ $comment->comment }}</div>
           			
         			</article>
+        			</div>
+        			
         		</li>
       		@endforeach
       		</ul>
