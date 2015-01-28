@@ -17,6 +17,7 @@ class CreateCommentsTable extends Migration {
 			$table->increments('id');
 			$table->integer('userid');
 			$table->text('comment');
+			$table->integer('points');
 
 			// our foreign key referencing the posts table
       		$table->integer('post_id')->unsigned();
