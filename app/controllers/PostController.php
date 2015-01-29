@@ -70,6 +70,7 @@ class PostController extends BaseController {
     	$comment = new Comment();
     	$comment->post_id = $id;
     	$comment->comment = nl2br(Input::get('comment'));
+    	$comment->points = 0;
 
     	// save the comment with a relation to the post
     	//$post->comments()->save($comment);
@@ -79,7 +80,7 @@ class PostController extends BaseController {
     	return Redirect::route('viewPost', array('id' => $id));
   	}
   	
-  	public function upVote($id)
+  	public function upVotePost($id)
   	{
   		$post = Post::findOrFail($id);
   		$post->points++;
@@ -88,13 +89,31 @@ class PostController extends BaseController {
   		return Redirect::route('index');
   	}
   	
-  	public function downVote($id)
+  	public function downVotePost($id)
   	{
   		$post = Post::findOrFail($id);
   		$post->points--;
   		$post->save();
   		
   		return Redirect::route('index');
+  	}
+  	
+  	public function upVoteComment($id)
+  	{
+  		$comment = Comment::findOrFail($id);
+  		$comment->points++;
+  		$comment->save();
+  		
+  		return Redirect::back();
+  	}
+  	
+  	public function downVoteComment($id)
+  	{
+  		$comment = Comment::findOrFail($id);
+  		$comment->points--;
+  		$comment->save();
+  		
+  		return Redirect::back();
   	}
 
 }

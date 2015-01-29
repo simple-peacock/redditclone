@@ -80,15 +80,27 @@ Route::post('/{id}/newcomment', array(
 ));
 
 // up vote a post
-Route::get('/{id}/upvote', array(
-	'uses' => 'PostController@upVote',
-	'as' => 'upVote'
+Route::get('/{id}/upvotep', array(
+	'uses' => 'PostController@upVotePost',
+	'as' => 'upVotePost'
 ));
 
 // down vote a post
-Route::get('/{id}/downvote', array(
-	'uses' => 'PostController@downVote',
-	'as' => 'downVote'
+Route::get('/{id}/downvotep', array(
+	'uses' => 'PostController@downVotePost',
+	'as' => 'downVotePost'
+));
+
+// up vote a comment
+Route::get('/{id}/upvotec', array(
+	'uses' => 'PostController@upVoteComment',
+	'as' => 'upVoteComment'
+));
+
+// down vote a comment
+Route::get('/{id}/downvotec', array(
+	'uses' => 'PostController@downVoteComment',
+	'as' => 'downVoteComment'
 ));
 
 // view user profile
