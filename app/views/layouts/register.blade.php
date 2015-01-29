@@ -23,7 +23,7 @@
     	</div>
     	
     	<div class="uk-form-row">
-      		<input name="email" type="email" placeholder="Email Address">
+      		<input name="email" type="email" placeholder="Email (optional)">
     	</div>
 
 		<div class="uk-form-row">
