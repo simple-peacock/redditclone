@@ -11,7 +11,7 @@
     	@else
     		
     		<ul class="uk-comment-list" id="comments">
-      			@foreach ($post->comments as $comment)
+      			@foreach ($comments as $comment)
 					@include('partials.comment')
       			@endforeach
       		</ul>

@@ -52,9 +52,11 @@ class PostController extends BaseController {
   	{
     	
     	$post = Post::findOrFail($postid);
+    	
+		$comments = $post->comments()->orderBy('points', 'DESC')->get();
 
     	return View::make('layouts.viewpost', array(
-      		'post' => $post
+      		'post' => $post, 'comments' => $comments
     	));
   	}
   	
