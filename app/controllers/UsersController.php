@@ -41,12 +41,6 @@ class UsersController extends BaseController {
          
 	}
 	
-	public function getLogin() {
-	
-		return View::make('layouts.login');
-	
-	}
-	
 	public function postLogin() {
 		
 		if (Auth::attempt(array('username' => Input::get('username'), 'password' => Input::get('password'))))

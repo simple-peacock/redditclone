@@ -31,12 +31,6 @@ Route::post('/register', array(
 	'as' => 'postRegister'
 ));
 
-// login view
-Route::get('/login', array(
-	'uses' => 'UsersController@getLogin',
-	'as' => 'getLogin'
-));
-
 // login - POST
 Route::post('/login', array(
 	'before' => 'csrf',
