@@ -43,8 +43,8 @@ class UsersController extends BaseController {
     		return Redirect::intended('/')->with('authmessage', 'You are now logged in');
 		}
 		else {
-    		return Redirect::route('getLogin')
-        		->with('message', 'Your username and password combination was incorrect')
+    		return Redirect::back()
+        		->with('authmessage', 'Your username and password combination was incorrect')
         		->withInput();
 		}
 	}

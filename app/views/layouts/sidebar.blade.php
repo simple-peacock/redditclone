@@ -1,7 +1,7 @@
 
 @if(Session::has('authmessage'))
     
-    <p class="uk-alert">{{ Session::get('authmessage') }}</p>
+    <p class="uk-alert uk-tab-grid">{{ Session::get('authmessage') }}</p>
 
 @endif
 
@@ -14,8 +14,8 @@
 
 	<ul class="uk-tab" data-uk-tab="{connect:'#tab-loginregister'}">
   	
-  		<li class=""><a href="">Login</a></li>
-  		<li class=""><a href="">Register</a></li>
+  		<li class="uk-width-1-2"><a href="">Login</a></li>
+  		<li class="uk-width-1-2"><a href="">Register</a></li>
   	
   	</ul>
   	
