@@ -18,12 +18,6 @@ Route::get('/', array(
 	'as' => 'index'
 ));
 
-// register view
-Route::get('/register', array(
-	'uses' => 'UsersController@getRegister',
-	'as' => 'getRegister'
-));
-
 // register - POST
 Route::post('/register', array(
 	'before' => 'csrf',

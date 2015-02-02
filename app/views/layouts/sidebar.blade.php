@@ -6,7 +6,19 @@
 
 @else
 
-	@include('partials.loginform')
+	<ul class="uk-tab" data-uk-tab="{connect:'#tab-loginregister'}">
+  	
+  		<li class=""><a href="">Login</a></li>
+  		<li class=""><a href="">Register</a></li>
+  	
+  	</ul>
+  	
+  	<ul id="tab-loginregister" class="uk-switcher uk-margin">
+  	
+  		<li>@include('partials.loginform')</li>
+		
+		<li>@include('partials.registerform')</li>
+	</ul>
 
 @endif
 
