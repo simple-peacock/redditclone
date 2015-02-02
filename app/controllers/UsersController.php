@@ -31,7 +31,7 @@ class UsersController extends BaseController {
     	
         	// validation has failed, display error messages 
         	
-        	return Redirect::route('getRegister')->with('message', 'The following errors occurred')->withErrors($validator)->withInput();    	  
+        	return Redirect::back()->with('message', 'The following errors occurred')->withErrors($validator)->withInput();    	  
     	}
          
 	}
