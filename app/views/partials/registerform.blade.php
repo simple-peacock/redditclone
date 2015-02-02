@@ -1,10 +1,4 @@
-<h3>Register</h3>
-  	
-@if(Session::has('message'))
-    <p class="uk-alert">{{ Session::get('message') }}</p>
-@endif
-    
-	
+  
 @foreach($errors->all() as $error)
     <div class="uk-alert uk-alert-danger">{{ $error }}</div>
 @endforeach
@@ -15,19 +9,19 @@
     {{ Form::token() }}
     	
     <div class="uk-form-row">
-      	<input name="username" type="text" placeholder="Username">
+      	<input name="username" type="text" placeholder="Username" class="uk-width-1-1">
     </div>
     	
     <div class="uk-form-row">
-      	<input name="email" type="email" placeholder="Email (optional)">
+      	<input name="email" type="email" placeholder="Email (optional)" class="uk-width-1-1">
     </div>
 
 	<div class="uk-form-row">
-      	<input name="password" type="password" placeholder="Password">
+      	<input name="password" type="password" placeholder="Password" class="uk-width-1-1">
     </div>
 
 	<div class="uk-form-row">
-      	<input name="password_confirm" type="password" placeholder="Confirm Password">
+      	<input name="password_confirm" type="password" placeholder="Confirm Password" class="uk-width-1-1">
     </div>
 
     <div class="uk-form-row">

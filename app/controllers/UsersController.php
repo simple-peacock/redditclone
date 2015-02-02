@@ -25,13 +25,13 @@ class UsersController extends BaseController {
     		
     		Auth::login($user);
  
-    		return Redirect::route('index')->with('message', 'You are now registered!');
+    		return Redirect::route('index')->with('authmessage', 'You are now registered!');
         	
     	} else {
     	
         	// validation has failed, display error messages 
         	
-        	return Redirect::back()->with('message', 'The following errors occurred')->withErrors($validator)->withInput();    	  
+        	return Redirect::back()->with('authmessage', 'The following errors occurred')->withErrors($validator)->withInput();    	  
     	}
          
 	}
@@ -40,7 +40,7 @@ class UsersController extends BaseController {
 		
 		if (Auth::attempt(array('username' => Input::get('username'), 'password' => Input::get('password'))))
 		{
-    		return Redirect::intended('/')->with('message', 'You are now logged in');
+    		return Redirect::intended('/')->with('authmessage', 'You are now logged in');
 		}
 		else {
     		return Redirect::route('getLogin')
@@ -53,7 +53,7 @@ class UsersController extends BaseController {
     	
     	Auth::logout();
     	
-    	return Redirect::route('index')->with('message', 'Your are now logged out!');
+    	return Redirect::route('index')->with('authmessage', 'Your are now logged out!');
 	
 	}
 	

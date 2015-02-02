@@ -1,20 +1,14 @@
-<h3>Login</h3>
-  	
-@if(Session::has('message'))
-    <p class="uk-alert">{{ Session::get('message') }}</p>
-@endif
-    
   	
 <form action="{{ URL::route('postLogin') }}" method="post" class="uk-form">
     	
 	{{ Form::token() }}
     	
     <div class="uk-form-row">
-      	<input name="username" type="text" placeholder="Username">
+      	<input name="username" type="text" placeholder="Username" class="uk-width-1-1">
     </div>
 
 	<div class="uk-form-row">
-      	<input name="password" type="password" placeholder="Password">
+      	<input name="password" type="password" placeholder="Password" class="uk-width-1-1">
     </div>
 
     <div class="uk-form-row">
