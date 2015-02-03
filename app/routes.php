@@ -1,24 +1,14 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the Closure to execute when that URI is requested.
-|
-*/
 
 
-// main view - show all posts
-Route::get('/', array(
-	'uses' => 'PostController@index',
-	'as' => 'index'
-));
+/**
+ *
+ * User Authentication
+ *
+ */
 
-// register - POST
+// register user- POST
 Route::post('/register', array(
 	'before' => 'csrf',
 	'uses' => 'UsersController@postRegister',
@@ -38,13 +28,32 @@ Route::get('/logout', array(
 	'as' => 'logout'
 ));
 
+// view user profile
+Route::get('/profile/{username}', array(
+	'uses' => 'UsersController@viewProfile',
+	'as' => 'viewProfile'
+));
+
+
+
+/**
+ *
+ * Posts
+ *
+ */
+
+// main view - show all posts
+Route::get('/', array(
+	'uses' => 'PostController@index',
+	'as' => 'index'
+));
+
 // create post - the form
 Route::get('/new', array(
 	'before' => 'auth',
 	'uses' => 'PostController@newPost',
 	'as' => 'newPost'
 ));
-
 
 // create post - POST
 Route::post('/new', array(
@@ -53,18 +62,10 @@ Route::post('/new', array(
 	'as' => 'createPost'
 ));
 
-
 // view a single post
 Route::get('/{id}', array(
 	'uses' => 'PostController@viewPost',
 	'as' => 'viewPost'
-));
-
-// create a new comment for a given post
-Route::post('/{id}/newcomment', array(
-	'before' => 'auth',
-	'as' => 'createComment',
-	'uses' => 'CommentController@createComment'
 ));
 
 // up vote a post
@@ -79,6 +80,21 @@ Route::get('/{id}/downvotep', array(
 	'as' => 'downVotePost'
 ));
 
+
+
+/**
+ *
+ * Comments
+ *
+ */
+
+// create a new comment for a given post
+Route::post('/{id}/newcomment', array(
+	'before' => 'auth',
+	'as' => 'createComment',
+	'uses' => 'CommentController@createComment'
+));
+
 // up vote a comment
 Route::get('/{id}/upvotec', array(
 	'uses' => 'CommentController@upVoteComment',
@@ -90,14 +106,3 @@ Route::get('/{id}/downvotec', array(
 	'uses' => 'CommentController@downVoteComment',
 	'as' => 'downVoteComment'
 ));
-
-// view user profile
-Route::get('/profile/{username}', array(
-	'uses' => 'UsersController@viewProfile',
-	'as' => 'viewProfile'
-));
-
-
-
-
-
