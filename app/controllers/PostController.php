@@ -61,33 +61,58 @@ class PostController extends BaseController {
   	}
 
 
-		public function upVotePost($id)
-  	{
-			if(!Auth::check())
-  		{
 
-				return Redirect::route('index')->with('message', 'Please login to vote!');
+		public function vote($type, $id, $upordown)
+		{
+
+			if(!Auth::check())
+			{
+
+				return Redirect::back()->with('message', 'Please login to vote!');
 
 			} else {
 
-				$post = Post::findOrFail($id);
-				$post->points++;
-				$post->save();
+				if($type == 'post') {
+
+					$post = Post::findOrFail($id);
+
+					if($upordown == 'up') {
+
+						$post->points++;
+
+					} elseif($upordown == 'down') {
+
+						$post->points--;
+
+					}
+
+					$post->save();
+
+					return Redirect::route('index');
+
+
+				} elseif ($type == 'comment') {
+
+					$comment = Comment::findOrFail($id);
+
+					if($upordown == 'up') {
+
+						$comment->points++;
+
+					} elseif($upordown == 'down') {
+
+						$comment->points--;
+
+					}
+
+					$comment->save();
+
+					return Redirect::back();
+
+				}
 
 			}
-
-  		return Redirect::route('index');
-  	}
-
-  	public function downVotePost($id)
-  	{
-  		$post = Post::findOrFail($id);
-  		$post->points--;
-  		$post->save();
-
-  		return Redirect::route('index');
-  	}
-
+		}
 
 
 }

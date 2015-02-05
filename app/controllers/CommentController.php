@@ -1,7 +1,7 @@
 <?php
 
-class CommentController extends BaseController {	
-	
+class CommentController extends BaseController {
+
 	// create a comment for a given post
   	public function createComment($id)
   	{
@@ -23,23 +23,4 @@ class CommentController extends BaseController {
     	return Redirect::route('viewPost', array('id' => $id));
   	}
   	
-  	
-  	public function upVoteComment($id)
-  	{
-  		$comment = Comment::findOrFail($id);
-  		$comment->points++;
-  		$comment->save();
-  		
-  		return Redirect::back();
-  	}
-  	
-  	
-  	public function downVoteComment($id)
-  	{
-  		$comment = Comment::findOrFail($id);
-  		$comment->points--;
-  		$comment->save();
-  		
-  		return Redirect::back();
-  	}
 }

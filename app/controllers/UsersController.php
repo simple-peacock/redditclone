@@ -1,10 +1,10 @@
 <?php
- 
+
 class UsersController extends BaseController {
-	
-	
+
+
 	public function postRegister() {
-         
+
 		$validator = Validator::make(Input::all(),
     		array(
         		'username' => 'required|unique:users',
@@ -12,35 +12,35 @@ class UsersController extends BaseController {
         		'password' => 'required|min:6',
         		'password_confirm' => 'required|min:6|same:password',
     		));
-        
+
         if ($validator->passes()) {
-        
+
         	// validation has passed, save user in DB
-        	
+
         	$user = new User;
     		$user->username = Input::get('username');
     		$user->email = Input::get('email');
     		$user->password = Hash::make(Input::get('password'));
     		$user->save();
-    		
+
     		Auth::login($user);
- 
+
     		return Redirect::route('index')->with('authmessage', 'You are now registered!');
-        	
+
     	} else {
-    	
-        	// validation has failed, display error messages 
-        	
-        	return Redirect::back()->with('authmessage', 'The following errors occurred')->withErrors($validator)->withInput();    	  
+
+        	// validation has failed, display error messages
+
+        	return Redirect::back()->with('authmessage', 'The following errors occurred')->withErrors($validator)->withInput();
     	}
-         
+
 	}
-	
+
 	public function postLogin() {
-		
+
 		if (Auth::attempt(array('username' => Input::get('username'), 'password' => Input::get('password'))))
 		{
-    		return Redirect::intended('/')->with('authmessage', 'You are now logged in');
+    		return Redirect::back()->with('authmessage', 'You are now logged in');
 		}
 		else {
     		return Redirect::back()
@@ -48,20 +48,20 @@ class UsersController extends BaseController {
         		->withInput();
 		}
 	}
-	
+
 	public function logout() {
-    	
+
     	Auth::logout();
-    	
-    	return Redirect::route('index')->with('authmessage', 'Your are now logged out!');
-	
+
+    	return Redirect::back()->with('authmessage', 'Your are now logged out!');
+
 	}
-	
+
 	public function viewProfile($username) {
-	
+
 		$user = User::where('username', '=', $username)->first();
-				
+
 		return View::make('layouts.viewprofile', array('user' => $user));
-	
+
 	}
 }

@@ -68,16 +68,10 @@ Route::get('/{id}', array(
 	'as' => 'viewPost'
 ));
 
-// up vote a post
-Route::get('/{id}/upvotep', array(
-	'uses' => 'PostController@upVotePost',
-	'as' => 'upVotePost'
-));
-
-// down vote a post
-Route::get('/{id}/downvotep', array(
-	'uses' => 'PostController@downVotePost',
-	'as' => 'downVotePost'
+// vote on a post or comment
+Route::get('/vote/{type}/{id}/{upordown}', array(
+	'uses' => 'PostController@vote',
+	'as' => 'vote'
 ));
 
 
@@ -93,16 +87,4 @@ Route::post('/{id}/newcomment', array(
 	'before' => 'auth',
 	'as' => 'createComment',
 	'uses' => 'CommentController@createComment'
-));
-
-// up vote a comment
-Route::get('/{id}/upvotec', array(
-	'uses' => 'CommentController@upVoteComment',
-	'as' => 'upVoteComment'
-));
-
-// down vote a comment
-Route::get('/{id}/downvotec', array(
-	'uses' => 'CommentController@downVoteComment',
-	'as' => 'downVoteComment'
 ));
