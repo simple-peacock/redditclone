@@ -2,15 +2,26 @@
 
 class PostController extends BaseController {
 
-	// show all posts
+
+	/**
+	 *
+	 * Posts index - show all posts on the front page
+	 *
+	 */
+
 	public function index()
 	{
-      	return View::make('layouts.main-content', array('posts' => Post::orderBy('points','DESC')->paginate(2)));
+    return View::make('layouts.index', array('posts' => Post::orderBy('points','DESC')->paginate(2)));
 	}
 
 
 
-	// create new post with a form
+	/**
+	 *
+	 * New Post - the view
+	 *
+	 */
+
 	public function newPost()
 	{
 		return View::make('layouts.newpost');
@@ -18,101 +29,120 @@ class PostController extends BaseController {
 
 
 
+	/**
+	 *
+	 * New Post - function to create a post
+	 *
+	 */
 
-  	public function createPost()
-  	{
+	public function createPost()
+	{
 
-    	$user = User::findOrFail(Auth::id());
+  	$user = User::findOrFail(Auth::id());
 
-    	$post = new Post();
-    	$post->title = Input::get('title');
+  	$post = new Post();
+  	$post->title = Input::get('title');
 
-    	if (Input::has('text')) {
+  	if (Input::has('text')) {
 
-    		$post->text = nl2br(Input::get('text'));
+  		$post->text = nl2br(Input::get('text'));
 
-    	} elseif (Input::has('url')) {
+  	} elseif (Input::has('url')) {
 
-    		$post->islink = true;
-    		$post->link = Input::get('url');
-    	}
-
-    	$post->points = 0;
-
-    	$user->posts()->save($post);
-
-    	//return Redirect::route('viewPost', array('id' => $post->id));
-    	return Redirect::route('index');
+  		$post->islink = true;
+  		$post->link = Input::get('url');
   	}
 
+  	$post->points = 0;
+
+  	$user->posts()->save($post);
+
+  	return Redirect::route('index');
+
+	}
 
 
-  	// view a post by id
-  	public function viewPost($postid)
-  	{
 
-    	$post = Post::findOrFail($postid);
+	/**
+	 *
+	 * View a single post by id
+	 *
+	 */
+
+	public function viewPost($postid)
+	{
+
+		$post = Post::findOrFail($postid);
 
 		$comments = $post->comments()->orderBy('points', 'DESC')->get();
 
-    	return View::make('layouts.viewpost', array(
-      		'post' => $post, 'comments' => $comments
-    	));
-  	}
+  	return View::make('layouts.viewpost', array(
+
+			'post' => $post,
+			'comments' => $comments
+
+		));
+
+	}
 
 
 
-		public function vote($type, $id, $upordown)
+	/**
+	 *
+	 * Vote on a post or comment
+	 *
+	 */
+
+	public function vote($type, $id, $upordown)
+	{
+
+		if(!Auth::check())
 		{
 
-			if(!Auth::check())
-			{
+			return Redirect::back()->with('message', 'Please login to vote!');
 
-				return Redirect::back()->with('message', 'Please login to vote!');
+		} else {
 
-			} else {
+			if($type == 'post') {
 
-				if($type == 'post') {
+				$post = Post::findOrFail($id);
 
-					$post = Post::findOrFail($id);
+				if($upordown == 'up') {
 
-					if($upordown == 'up') {
+					$post->points++;
 
-						$post->points++;
+				} elseif($upordown == 'down') {
 
-					} elseif($upordown == 'down') {
-
-						$post->points--;
-
-					}
-
-					$post->save();
-
-					return Redirect::route('index');
-
-
-				} elseif ($type == 'comment') {
-
-					$comment = Comment::findOrFail($id);
-
-					if($upordown == 'up') {
-
-						$comment->points++;
-
-					} elseif($upordown == 'down') {
-
-						$comment->points--;
-
-					}
-
-					$comment->save();
-
-					return Redirect::back();
+					$post->points--;
 
 				}
+
+				$post->save();
+
+				return Redirect::route('index');
+
+
+			} elseif ($type == 'comment') {
+
+				$comment = Comment::findOrFail($id);
+
+				if($upordown == 'up') {
+
+					$comment->points++;
+
+				} elseif($upordown == 'down') {
+
+					$comment->points--;
+
+				}
+
+				$comment->save();
+
+				return Redirect::back();
 
 			}
 		}
 
+	} // end of vote() function
 
-}
+} // end of PostController

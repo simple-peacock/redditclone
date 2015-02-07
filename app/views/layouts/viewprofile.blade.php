@@ -1,30 +1,31 @@
 @extends('layouts.master')
 
-@section('main-content')
-    
+@section('index')
+
 	<h3>{{ $user->username }}'s Profile</h3>
-	
+
 	<div>
-		<h3>Posts by {{ $user->username }}: </h3>
-		
+
+    <h3>Posts by {{ $user->username }}: </h3>
+
 		@foreach ($user->posts as $post)
-		
-			{{ $post->title }}</br>
-			
+
+		  {{ $post->title }}</br>
+
 		@endforeach
-		
+
 	</div>
-	
+
 	<div>
-		<h3>Comments by {{ $user->username }}: </h3>
-		
+
+    <h3>Comments by {{ $user->username }}: </h3>
+
 		@foreach ($user->comments as $comment)
-		
+
 			{{ $comment->comment }}</br>
-			
+
 		@endforeach
-		
+
 	</div>
-	
-	
+
 @stop

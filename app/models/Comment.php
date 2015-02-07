@@ -2,16 +2,33 @@
 
 class Comment extends Eloquent {
 
-	// many-to-one relationship with the Post model
+
+	/**
+	 *
+	 * Define a one-to-many relationship with the Post model
+	 *
+	 */
+
 	public function post()
-  	{
-    	return $this->belongsTo('Post');
-  	}
-  	
-  	// many-to-one relationship with the User model
+  {
+
+			return $this->belongsTo('Post');
+
+	}
+
+
+
+	/**
+	 *
+	 * Define a one-to-many relationship with the User model
+	 *
+	 */
+
 	public function user()
-  	{
-    	return $this->belongsTo('User');
-  	}
-  
+  {
+
+		return $this->belongsTo('User');
+
+	}
+
 }
