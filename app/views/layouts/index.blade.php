@@ -22,6 +22,10 @@
 
   @endif
 
-  {{ $posts->links('pagination::slider-3') }}
+  <ul class="uk-pagination">
+
+    <li>{{ $posts->links('pagination::simple') }}</li>
+
+  </ul>
 
 @stop

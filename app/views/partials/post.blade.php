@@ -32,7 +32,7 @@
 
     @if ($full)
 
-      {{ $post->text }}
+      <p>{{ $post->text }}</p>
 
     @endif
 
@@ -41,11 +41,14 @@
   <div class="uk-article-meta">
 
     Posted {{ $post->created_at->diffForHumans() }} by <a href="{{ URL::route('viewProfile', array('username' => $post->user->username)) }}">{{ $post->user->username }}</a>
-  	<div class="uk-article-meta">
 
-      <a class="uk-link-muted" href="{{ $post->getURL(); }}#comments">{{ $post->getNumComments() }}</a>
+    @if (!$full)
+      <div class="uk-article-meta">
 
-    </div>
+        <a class="uk-link-muted" href="{{ $post->getURL(); }}#comments">{{ $post->getNumComments() }}</a>
+
+      </div>
+    @endif
 
   </div>
 

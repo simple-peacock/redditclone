@@ -12,11 +12,11 @@
 
 	<div class="uk-margin-large-top">
 
-      <h4>Comments</h4>
+      <p class="uk-text-bold">Comments:</h4>
 
       @if (count($post->comments) === 0)
 
-        <p>No comments yet on this post.</p>
+        No comments yet on this post.
 
       @else
 
@@ -35,28 +35,38 @@
 
 	@if (Auth::check())
 
-    <h4>New Comment:</h4>
+    <div class="uk-margin-large-top">
 
-    <form action="{{ URL::route('createComment', array('id' => $post->id)) }}" method="post" class="uk-form">
+      <p class="uk-text-bold">New Comment:</p>
 
-      <fieldset>
+      <form action="{{ URL::route('createComment', array('id' => $post->id)) }}" method="post" class="uk-form">
 
-      	<div class="uk-form-row">
-      			<textarea class="uk-form-width-large" rows="10" name="comment" placeholder="Write here..."></textarea>
-      	</div>
+        <fieldset>
 
-      	<div class="uk-form-row">
-      	   <button class="uk-button">Submit</button>
-      	</div>
+        	<div class="uk-form-row">
+        			<textarea class="uk-form-width-large" rows="10" name="comment" placeholder="Write here..."></textarea>
+        	</div>
 
-    	</fieldset>
+        	<div class="uk-form-row">
+        	   <button class="uk-button">Submit</button>
+        	</div>
 
-    <form>
+      	</fieldset>
+
+      <form>
+
+    </div>
 
   @else
 
-    <p>Please login to write a comment.</p>
+    <div class="uk-margin-large-top">
+
+      <p>Please login to write a comment.</p>
+
+    </div>
 
   @endif
+
+
 
 @stop
