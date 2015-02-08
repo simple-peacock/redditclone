@@ -11,7 +11,7 @@ class PostController extends BaseController {
 
 	public function index()
 	{
-    return View::make('layouts.index', array('posts' => Post::orderBy('points','DESC')->paginate(2)));
+    return View::make('layouts.index', array('posts' => Post::orderBy('points','DESC')->paginate(10)));
 	}
 
 

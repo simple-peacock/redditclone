@@ -12,7 +12,7 @@
 
 	<div class="uk-margin-large-top">
 
-      <p class="uk-text-bold">Comments:</h4>
+      <p class="uk-text-bold">Comments:</p>
 
       @if (count($post->comments) === 0)
 
