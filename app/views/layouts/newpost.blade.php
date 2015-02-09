@@ -15,39 +15,39 @@
 
   	<li>
 
-      <form action="{{ URL::route('createPost') }}" method="post" class="uk-form">
+      {{ Form::open(array('route' => 'createPost', 'class' => 'uk-form')) }}
 
     		<div class="uk-form-row">
-          <input class="uk-width-1-1" name="title" type="text" placeholder="Title" />
+          {{ Form::text('title', '', array('class' => 'uk-width-1-1', 'placeholder' => 'Title')) }}
     		</div>
 
         <div class="uk-form-row">
-          <input class="uk-width-1-1" name="url" type="text" placeholder="URL" />
+          {{ Form::text('url', '', array('class' => 'uk-width-1-1', 'placeholder' => 'URL')) }}
     		</div>
 
         <div class="uk-form-row">
-          <button class="uk-button">Submit</button>
+          {{ Form::button('Submit', array('class' => 'uk-button', 'type' => 'submit')) }}
     		</div>
 
-      </form>
+      {{ Form::close() }}
 
     </li>
 
 
     <li>
 
-    	<form action="{{ URL::route('createPost') }}" method="post" class="uk-form">
+      {{ Form::open(array('route' => 'createPost', 'class' => 'uk-form')) }}
 
         <div class="uk-form-row">
-          <input class="uk-width-1-1" name="title" type="text" placeholder="Title" />
+          {{ Form::text('title', '', array('class' => 'uk-width-1-1', 'placeholder' => 'Title')) }}
     		</div>
 
         <div class="uk-form-row">
-          <textarea class="uk-width-1-1" rows="10" name="text" placeholder="Write here..."></textarea>
+          {{ Form::textarea('text', '', array('class' => 'uk-width-1-1', 'placeholder' => 'Write here...', 'rows' => 10)) }}
     		</div>
 
         <div class="uk-form-row">
-          <button class="uk-button">Submit</button>
+          {{ Form::button('Submit', array('class' => 'uk-button', 'type' => 'submit')) }}
     		</div>
 
       </form>
