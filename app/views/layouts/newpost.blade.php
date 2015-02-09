@@ -50,7 +50,7 @@
           {{ Form::button('Submit', array('class' => 'uk-button', 'type' => 'submit')) }}
     		</div>
 
-      </form>
+      {{ Form::close() }}
 
   	</li>
 
