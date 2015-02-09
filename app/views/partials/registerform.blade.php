@@ -4,29 +4,27 @@
     <div class="uk-alert uk-alert-danger">{{ $error }}</div>
 
 @endforeach
-    
-<form action="{{ URL::route('postRegister') }}" method="post" class="uk-form">
 
-  {{ Form::token() }}
+{{ Form::open(array('route' => 'postRegister', 'class' => 'uk-form')) }}
 
   <div class="uk-form-row">
-    <input name="username" type="text" placeholder="Username" class="uk-width-1-1">
+    {{ Form::text('username', '', array('class' => 'uk-width-1-1', 'placeholder' => 'Username')) }}
   </div>
 
   <div class="uk-form-row">
-    <input name="email" type="email" placeholder="Email (optional)" class="uk-width-1-1">
+    {{ Form::email('email', '', array('class' => 'uk-width-1-1', 'placeholder' => 'Email (optional)')) }}
   </div>
 
 	<div class="uk-form-row">
-    <input name="password" type="password" placeholder="Password" class="uk-width-1-1">
+    {{ Form::password('password', array('class' => 'uk-width-1-1', 'placeholder' => 'Password')) }}
   </div>
 
 	<div class="uk-form-row">
-    <input name="password_confirm" type="password" placeholder="Confirm Password" class="uk-width-1-1">
+    {{ Form::password('password_confirm', array('class' => 'uk-width-1-1', 'placeholder' => 'Confirm Password')) }}
   </div>
 
   <div class="uk-form-row">
-    <button class="uk-button">Register</button>
+    {{ Form::button('Register', array('class' => 'uk-button', 'type' => 'submit')) }}
   </div>
 
-</form>
+{{ Form::close() }}

@@ -1,18 +1,16 @@
 
-<form action="{{ URL::route('postLogin') }}" method="post" class="uk-form">
-
-	{{ Form::token() }}
+{{ Form::open(array('route' => 'postLogin', 'class' => 'uk-form')) }}
 
   <div class="uk-form-row">
-    <input name="username" type="text" placeholder="Username" class="uk-width-1-1">
+		{{ Form::text('username', '', array('class' => 'uk-width-1-1', 'placeholder' => 'Username')) }}
   </div>
 
 	<div class="uk-form-row">
-    <input name="password" type="password" placeholder="Password" class="uk-width-1-1">
+		{{ Form::password('password', array('class' => 'uk-width-1-1', 'placeholder' => 'Password')) }}
   </div>
 
   <div class="uk-form-row">
-      <button class="uk-button">Login</button>
+		{{ Form::button('Login', array('class' => 'uk-button', 'type' => 'submit')) }}
   </div>
-  	
-</form>
+
+{{ Form::close() }}
