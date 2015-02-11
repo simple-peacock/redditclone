@@ -4,6 +4,12 @@
 
   <h3>New Post</h3>
 
+  @if(Session::has('message'))
+
+    <p class="uk-alert uk-tab-grid">{{ Session::get('message') }}</p>
+
+  @endif
+
   <ul class="uk-tab uk-tab-grid" data-uk-tab="{connect:'#tab-content'}">
 
     <li class="uk-width-1-6"><a href="">Link</a></li>

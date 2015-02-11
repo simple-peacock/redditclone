@@ -49,8 +49,21 @@ class PostController extends BaseController {
 
   	} elseif (Input::has('url')) {
 
-  		$post->islink = true;
-  		$post->link = Input::get('url');
+			$validator = Validator::make(array('url' => Input::get('url')),
+				array(
+						'url' => 'url|active_url'
+				));
+
+			if ($validator->passes()) {
+
+	  		$post->islink = true;
+	  		$post->link = Input::get('url');
+
+			} else {
+
+				return Redirect::back()->with('message', 'Invalid URL.')->withErrors($validator)->withInput();
+
+			}
   	}
 
   	$post->points = 0;
