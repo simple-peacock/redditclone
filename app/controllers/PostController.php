@@ -49,9 +49,10 @@ class PostController extends BaseController {
 
   	} elseif (Input::has('url')) {
 
+			// validate that we have entered a correctly formatted URL
 			$validator = Validator::make(array('url' => Input::get('url')),
 				array(
-						'url' => 'url|active_url'
+						'url' => 'url'
 				));
 
 			if ($validator->passes()) {
