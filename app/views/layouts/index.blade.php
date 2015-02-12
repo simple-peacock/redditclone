@@ -14,6 +14,8 @@
 
   @else
 
+
+
     @foreach ($posts as $post)
 
       @include('partials.post', array('post' => $post, 'full' => false))

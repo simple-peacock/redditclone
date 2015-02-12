@@ -58,6 +58,7 @@ Route::get('/new', array(
 // create post - POST
 Route::post('/new', array(
 	'before' => 'auth',
+	'before' => 'csrf',
 	'uses' => 'PostController@createPost',
 	'as' => 'createPost'
 ));
