@@ -10,7 +10,7 @@
 
 		@foreach ($user->posts as $post)
 
-		  {{ $post->title }}</br>
+			@include('partials.post', array('post' => $post, 'full' => false))
 
 		@endforeach
 
@@ -22,7 +22,9 @@
 
 		@foreach ($user->comments as $comment)
 
-			{{ $comment->comment }}</br>
+			<a class="uk-text-large" href="{{ $post->getURL(); }}">{{ $post->title }}</a></br>
+
+			{{ $comment->comment }}
 
 		@endforeach
 
