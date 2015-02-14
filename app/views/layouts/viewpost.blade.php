@@ -16,7 +16,7 @@
 
       @if (count($post->comments) === 0)
 
-        No comments yet on this post.
+        There are no comments yet.
 
       @else
 
@@ -37,7 +37,7 @@
 
     <div class="uk-margin-large-top">
 
-      <p class="uk-text-bold">New Comment:</p>
+      <p class="uk-text-bold">Leave a comment:</p>
 
       @include('partials.commentform')
 
@@ -47,7 +47,7 @@
 
     <div class="uk-margin-large-top">
 
-      <p>Please login to write a comment.</p>
+      <p>Please login to leave a comment.</p>
 
     </div>
 
