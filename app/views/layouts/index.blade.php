@@ -26,7 +26,7 @@
 
   <ul class="uk-pagination">
 
-    <li>{{ $posts->links('pagination::uikit') }}</li>
+    <li>{{ $posts->links('partials.pagination') }}</li>
 
   </ul>
 
