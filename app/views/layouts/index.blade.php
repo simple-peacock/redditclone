@@ -2,6 +2,9 @@
 
 @section('index')
 
+  
+
+
   @if(Session::has('message'))
 
     <p class="uk-alert">{{ Session::get('message') }}</p>

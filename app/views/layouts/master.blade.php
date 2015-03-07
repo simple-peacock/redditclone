@@ -14,8 +14,6 @@
 
     <nav class="uk-navbar uk-margin-bottom">
 
-      <a href="" class="uk-navbar-brand">Reddit Clone in Laravel</a>
-
       <ul class="uk-navbar-nav">
         	<li><a href="{{ URL::route('index') }}">Home</a></li>
       </ul>
@@ -37,15 +35,17 @@
 
   	</nav>
 
+    <h1 class="uk-text-center uk-margin-large-bottom uk-margin-large-top">Reddit Clone in Laravel</h2>
+
     <div class="uk-grid" data-uk-grid-margin>
 
-      <div class="uk-width-medium-3-4">
+      <div class="uk-width-small-3-4">
 
         @yield('index')
 
       </div>
 
-      <div class="uk-width-medium-1-4">
+      <div class="uk-width-small-1-4">
 
       	@include('layouts.sidebar')
 
