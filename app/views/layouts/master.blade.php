@@ -10,6 +10,8 @@
 
 <body>
 
+  @include('partials.googleanalytics')
+
   <div class="uk-container uk-container-center uk-margin-top">
 
     <nav class="uk-navbar uk-margin-bottom">
